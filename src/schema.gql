@@ -1,0 +1,90 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Img {
+  imgId: Float!
+  img: String!
+  width: Int!
+  height: Int!
+
+  """Example field (placeholder)"""
+  exampleField: Int!
+  news: News!
+  newsId: Int!
+}
+
+type News {
+  """news table id"""
+  newsId: Int!
+
+  """news title"""
+  title: String!
+
+  """news content"""
+  content: String!
+
+  """Example field (placeholder)"""
+  exampleField: Int!
+  img: [Img!]!
+}
+
+type Query {
+  news: [News!]!
+  img: [Img!]!
+}
+
+type Mutation {
+  createNews(createNewsInput: CreateNewsInput!): News!
+  updateNews(updateNewsInput: UpdateNewsInput!): News!
+  removeNews(newsId: Int!): News!
+  createImg(createImgInput: CreateImgInput!): Img!
+  updateImg(updateImgInput: UpdateImgInput!): Img!
+  removeImg(imgId: Int!): Img!
+}
+
+input CreateNewsInput {
+  """Example field (placeholder)"""
+  title: String!
+
+  """Example field (placeholder)"""
+  content: String!
+
+  """Example field (plaseholder)"""
+  exampleField: Int!
+}
+
+input UpdateNewsInput {
+  """Example field (placeholder)"""
+  title: String
+
+  """Example field (placeholder)"""
+  content: String
+
+  """Example field (plaseholder)"""
+  exampleField: Int
+
+  """Example field (placeholder)"""
+  newsId: Int!
+}
+
+input CreateImgInput {
+  img: String!
+  width: Int!
+  height: Int!
+
+  """Example field (placeholder)"""
+  exampleField: Int!
+  newsId: Int!
+}
+
+input UpdateImgInput {
+  img: String
+  width: Int
+  height: Int
+
+  """Example field (placeholder)"""
+  exampleField: Int
+  newsId: Int
+  imgId: Float!
+}
