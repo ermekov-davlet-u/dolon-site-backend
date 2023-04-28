@@ -1,4 +1,6 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
+import * as GraphQLUpload from 'graphql-upload/GraphQLUpload.js';
+
 
 @InputType()
 export class CreateImgInput {
@@ -8,9 +10,12 @@ export class CreateImgInput {
   width: number;
   @Field(() => Int)
   height: number;
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+
     
   @Field(() => Int)
   newsId: number;
+
+  @Field(() => GraphQLUpload)
+  image: any;
+  
 }

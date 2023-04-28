@@ -33,7 +33,7 @@ export class ImgService {
     });
   }
 
-  update(id: number, updateImgInput: UpdateImgInput) {
+  update(id: number, updateImgInput: any) {
     return this.imgRepo.update(id, updateImgInput);
   }
 

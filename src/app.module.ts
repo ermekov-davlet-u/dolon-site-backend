@@ -9,6 +9,9 @@ import { News } from './news/entities/news.entity';
 import { join } from 'path';
 import { ImgModule } from './img/img.module';
 import { Img } from './img/entities/img.entity';
+import { QestionModule } from './qestion/qestion.module';
+import { SubjectModule } from './subject/subject.module';
+import { WordModule } from './word/word.module';
 
 @Module({
   imports: [
@@ -30,7 +33,10 @@ import { Img } from './img/entities/img.entity';
       })
     }),
     NewsModule,
-    ImgModule
+    ImgModule,
+    QestionModule,
+    SubjectModule,
+    WordModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -33,4 +33,11 @@ export class Img {
   @Field(() => Int)
   newsId: number;
 
+  @Column({
+    default: "empty",
+    nullable: true
+  })
+  @Field(() => String)
+  image: string;
+
 }

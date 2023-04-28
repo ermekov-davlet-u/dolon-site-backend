@@ -12,6 +12,7 @@ type Img {
   exampleField: Int!
   news: News!
   newsId: Int!
+  image: String!
 }
 
 type News {
@@ -29,9 +30,27 @@ type News {
   img: [Img!]!
 }
 
+type Qestion {
+  """id question"""
+  idQuestion: Int!
+}
+
+type Subject {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Word {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 type Query {
   news: [News!]!
   img: [Img!]!
+  qestion(id: Int!): Qestion!
+  subject(id: Int!): Subject!
+  word(id: Int!): Word!
 }
 
 type Mutation {
@@ -39,8 +58,16 @@ type Mutation {
   updateNews(updateNewsInput: UpdateNewsInput!): News!
   removeNews(newsId: Int!): News!
   createImg(createImgInput: CreateImgInput!): Img!
-  updateImg(updateImgInput: UpdateImgInput!): Img!
   removeImg(imgId: Int!): Img!
+  createQestion(createQestionInput: CreateQestionInput!): Qestion!
+  updateQestion(updateQestionInput: UpdateQestionInput!): Qestion!
+  removeQestion(id: Int!): Qestion!
+  createSubject(createSubjectInput: CreateSubjectInput!): Subject!
+  updateSubject(updateSubjectInput: UpdateSubjectInput!): Subject!
+  removeSubject(id: Int!): Subject!
+  createWord(createWordInput: CreateWordInput!): Word!
+  updateWord(updateWordInput: UpdateWordInput!): Word!
+  removeWord(id: Int!): Word!
 }
 
 input CreateNewsInput {
@@ -72,19 +99,42 @@ input CreateImgInput {
   img: String!
   width: Int!
   height: Int!
-
-  """Example field (placeholder)"""
-  exampleField: Int!
   newsId: Int!
+  image: Upload!
 }
 
-input UpdateImgInput {
-  img: String
-  width: Int
-  height: Int
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
 
+input CreateQestionInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateQestionInput {
   """Example field (placeholder)"""
   exampleField: Int
-  newsId: Int
-  imgId: Float!
+  id: Int!
+}
+
+input CreateSubjectInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateSubjectInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateWordInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateWordInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
 }
